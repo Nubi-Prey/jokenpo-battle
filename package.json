@@ -1,0 +1,27 @@
+{
+  "name": "jokenpo-battle",
+  "version": "1.0.0",
+  "description": "Um jogo de batalhas de jokenpo!",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nubi-Prey/jokenpo-battle.git"
+  },
+  "author": "NubiPrey",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nubi-Prey/jokenpo-battle/issues"
+  },
+  "homepage": "https://github.com/Nubi-Prey/jokenpo-battle#readme",
+  "dependencies": {
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
