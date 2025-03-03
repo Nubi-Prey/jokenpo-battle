@@ -1,0 +1,10 @@
+:root {
+--bg-color: #1f1f1f;
+--border-color: #6BBF54;
+--contrast-color: #f7f7f7;
+}
+
+body{
+    background-color: var(--bg-color);
+    color: var(--contrast-color);
+}
