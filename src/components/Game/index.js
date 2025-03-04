@@ -17,10 +17,13 @@ export default function Window(){
         <div id='gameBox' className={style.box}>
             
             <div id='startBox' className={style.startBox}>
-                <h1>Iniciar Batalha!</h1>
+                
                 <form className={style.form}>
-                    <div>Seu nome: <input id='nickname' placeholder='Jogador'></input></div>
-                    <input type='button' className={style.startBtn} onClick={() => {game.start(document.getElementById('nickname').value || playerId)}} value='Iniciar jogo'/>
+                    <h2>Iniciar Batalha!</h2>
+                    <div className={style.name_box}>Seu nome: <input className={style.name_input} id='nickname' placeholder='Jogador'></input></div>
+                    <div className={style.btn_bottom}>
+                        <input type='button' className={style.startBtn} onClick={() => {game.start(document.getElementById('nickname').value || playerId)}} value='Jogar'/>
+                    </div>
                 </form>
             </div>
 

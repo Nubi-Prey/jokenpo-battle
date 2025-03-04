@@ -57,7 +57,7 @@ export default class Game{
 
             setTimeout(() => {
                 this.finish(player_choice, bot_choice)
-            }, 200)
+            }, 300)
         }, 200)
 
     }
@@ -66,20 +66,25 @@ export default class Game{
 
         const winner = possible_ends[playerOne][PlayerTwo]
         const gameMessage = document.getElementById('game_message')
+        const pointUp = new Audio('./sounds/point-up.mp3')
+        const pointDown = new Audio('./sounds/point-down.mp3')
 
         switch(winner){
-            case 1:
-                gameMessage.innerHTML += `<h3 class='${style.win}' >${this.playerId} ganhou o jogo!</h3>`
+            case 2:
+                gameMessage.innerHTML += `<h3 class='${style.win}' >${this.playerId} ganhou um ponto!</h3>`
                 this.playerOnePoints++
+                pointUp.play()
                 break;
 
-            case 2:
-                gameMessage.innerHTML += `<h3 class='${style.defeat}' >${this.botName} ganhou o jogo!</h3>`
+            case 1:
+                gameMessage.innerHTML += `<h3 class='${style.defeat}' >${this.botName} ganhou um ponto!</h3>`
                 this.playerTwoPoints++
+                pointDown.play()
                 break;
 
             default:
-                gameMessage.innerHTML += `<h3 class='${style.yellow}' >EMPATE ninguém ganhou o jogo!</h3>`
+                gameMessage.innerHTML += `<h3 class='${style.yellow}' >EMPATE ninguém ganhou um ponto!</h3>`
+                pointDown.play();
         }
 
         gameMessage.innerHTML += `<div class='${style.line}'></div>`

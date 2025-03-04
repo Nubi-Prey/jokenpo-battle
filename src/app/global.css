@@ -1,7 +1,8 @@
 :root {
---bg-color: #1f1f1f;
---border-color: #6BBF54;
---contrast-color: #f7f7f7;
+    --bg-color: #1f1f1f;
+    --contrast-color: #e8e8e8;
+    --border-color: #000000
+
 }
 
 body{
