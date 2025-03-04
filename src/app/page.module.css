@@ -1,7 +1,11 @@
-.gameContainer{
-    display:flex;
-    justify-content: center;
-    margin-top:50px;
-    height: auto;
-    width: auto;
+.title{
+    text-align: center;
+}
+
+@media only screen and (max-width: 620px){
+
+    .title{
+        font-size: 25px;
+    }
+
 }

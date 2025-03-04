@@ -5,22 +5,89 @@ const possible_choices = ['pedra','papel','tesoura']
 
 export default class Game{
     constructor(){
-        this.players = []
+        this.playerId = 'Jogador'
+        this.playerOnePoints = 0
+        this.playerTwoPoints = 0
+
+        this.botName = 'Anonymous'
+        this.end = true
+    }
+
+    set(choice, player){
+
+        if(player == 'Jogador'){
+            player = this.playerId
+        }
+
+        choice = possible_choices[choice]
+
+        const gameMessage = document.getElementById('game_message')
+        
+        gameMessage.scrollTop = gameMessage.scrollHeight - gameMessage.clientHeight
+        gameMessage.innerHTML += `${player} jogou <span class=${style.yellow}>${choice}</span>!<br/>`
 
     }
 
-    click(id, player){
-        let player_choice = possible_choices[id]
+    start(playerId){
+        document.getElementById('startBox').style.display = 'none'
+        document.getElementById('gameBox').style.justifyContent = 'flex-end'
+        document.getElementById('btnContainer').style.display = 'flex'
+        document.getElementById('scoreboard').style.display = 'block'
 
-        document.getElementById(player).innerHTML = `${player} jogou <span class=${style.choice}>${player_choice}</span>!`
 
-        //let bot_choice = document.getElementById(Math.floor(Math.random() * 3)) 
-        //document.getElementById('game_message').hidden = false
-        //document.getElementById('bot_choice').innerHTML = bot_choice.alt
+        this.playerId = playerId
+
+        document.getElementById('0').onclick = () => {this.play(0, playerId)}
+        document.getElementById('1').onclick = () => {this.play(1, playerId)}
+        document.getElementById('2').onclick = () => {this.play(2, playerId)}
 
     }
 
-    play(){
+    play(player_choice, playerId){
 
+        if(!this.end) return
+        this.end = false
+
+        this.set(player_choice, playerId)
+        const bot_choice = Math.floor(Math.random() * 3)
+
+        setTimeout(() => {
+            
+            this.set(bot_choice, this.botName)
+
+            setTimeout(() => {
+                this.finish(player_choice, bot_choice)
+            }, 200)
+        }, 200)
+
+    }
+
+    finish(playerOne, PlayerTwo){
+
+        const winner = possible_ends[playerOne][PlayerTwo]
+        const gameMessage = document.getElementById('game_message')
+
+        switch(winner){
+            case 1:
+                gameMessage.innerHTML += `<h3 class='${style.win}' >${this.playerId} ganhou o jogo!</h3>`
+                this.playerOnePoints++
+                break;
+
+            case 2:
+                gameMessage.innerHTML += `<h3 class='${style.defeat}' >${this.botName} ganhou o jogo!</h3>`
+                this.playerTwoPoints++
+                break;
+
+            default:
+                gameMessage.innerHTML += `<h3 class='${style.yellow}' >EMPATE ninguém ganhou o jogo!</h3>`
+        }
+
+        gameMessage.innerHTML += `<div class='${style.line}'></div>`
+
+        gameMessage.scrollTop = gameMessage.scrollHeight - gameMessage.clientHeight
+        
+        document.getElementById('playerOnePoints').innerHTML = this.playerOnePoints
+        document.getElementById('playerTwoPoints').innerHTML = this.playerTwoPoints
+        this.end = true
     }
 }
