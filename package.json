@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/Nubi-Prey/jokenpo-battle#readme",
   "dependencies": {
-    "next": "^15.2.0",
+    "next": "15.2.8",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   }
