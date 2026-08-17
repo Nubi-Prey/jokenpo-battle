@@ -1,0 +1,6 @@
+{
+  "title": "Jokenpo Battle",
+  "description": "Um \"pedra papel tesoura\" como todos conhecem. Porém em uma versão com site. (Em breve com suporte Multiplayer)",
+  "icon": "https://raw.githubusercontent.com/Nubi-Prey/jokenpo-battle/refs/heads/main/public/images/jokenpo-battle-round.svg",
+  "visitLink": "https://jokenpo-battle.vercel.app/"
+}
